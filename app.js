@@ -20,7 +20,7 @@ const routesHandler = require('./utils/routes-handler');
 var app = express();
 
 //CORS Configration
-const allowlist = ['http://localhost:3000',]
+const allowlist = ['http://localhost:3000','https://qr-student.onrender.com']
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions;
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
