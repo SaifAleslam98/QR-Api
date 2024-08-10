@@ -12,7 +12,7 @@ const { insertNewStudent } = require('../utils/validator/student-validator');
 
 //Function To Set Key To The Body
 exports.setKey = (req, res, next) => {
-    let key = (Math.random().toString(36).substring(2, 16).toUpperCase());
+    let key = (Math.random().toString(36).substring(2, 10).toUpperCase());
     req.body.code = key;
     next()
 }
@@ -54,7 +54,7 @@ exports.checkStudent = asyncHandler(async (req, res) => {
 
 exports.deleteAl = asyncHandler(async (req, res) => {
     try {
-        const del = await Attendance.deleteMany()
+        const del = await Student.deleteMany()
         res.send(del)
     } catch (error) {
         res.status(400).json({ message: error.message });
